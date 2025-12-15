@@ -14,7 +14,7 @@ export default function MenuItem({ label, subItems }) {
     >
       <button
         onClick={() => navigate(`/news/:category${label}`)}
-        className="border-amber-200 border-r-3 border-l-3 bg-white px-10 py-1 group-hover:text-blue-600 transition-color duration-200 cursor-pointer "
+        className="border-amber-200 border-r-3 border-l-3 bg-white py-2 text-sm md:px-4 md:text-base group-hover:text-blue-600 transition-color duration-200 cursor-pointer "
       >
         {label}
       </button>
@@ -22,7 +22,7 @@ export default function MenuItem({ label, subItems }) {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="absolute mt-2 border-md bg-white px-10 py-2 rounded-md shadow-md "
+            className="absolute hidden md:block mt-2 border-md bg-white px-10 py-2 rounded-md shadow-md "
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}

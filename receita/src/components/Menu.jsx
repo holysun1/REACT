@@ -50,7 +50,14 @@ export default function Menu({ onSelectCategory, activeCategory }) {
         justify-center
       "
           >
-            <div className="flex gap-8 sm:gap-8">
+            <div
+              className="flex 
+                flex-wrap 
+                justify-center 
+                gap-4 
+                md:flex-nowrap
+              "
+            >
               {menuData.map((item, index) => (
                 <MenuItem
                   key={index}

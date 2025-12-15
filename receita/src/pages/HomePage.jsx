@@ -20,7 +20,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className=" w-screen h-screen flex flex-col p-3">
+    <div className="min-h-screen w-full flex flex-col px-4 md:px-8 lg:px-16">
       <Menu
         onSelectCategory={setActiveCategory}
         activeCategory={activeCategory}
