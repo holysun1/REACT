@@ -1,7 +1,3 @@
-# Projeto React
-
-Estes são projetos em React criado durante meus estudos de desenvolvimento frontend com React.
-
 # Projetos em React
 
 Este repositório contém projetos desenvolvidos em React durante meus estudos.
