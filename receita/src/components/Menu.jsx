@@ -1,7 +1,7 @@
 import MenuItem from "./MenuItem";
 import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
-import HomePage from "../Page1/HomePage";
+import HomePage from "../pages/HomePage";
 
 const menuData = [
   {

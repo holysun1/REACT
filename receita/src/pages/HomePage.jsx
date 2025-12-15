@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import FeedSkeleton from "../FeedSkeleton.jsx";
 import Menu from "../components/Menu.jsx";
-import Feed from "../Feed";
+import Feed from "../Feed.jsx";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState("ALL");

@@ -1,8 +1,8 @@
-import Menu from "../components/Menu";
-import Feed from "../Feed";
+import Menu from "../components/Menu.jsx";
+import Feed from "../Feed.jsx";
 import { useParams } from "react-router";
 import NewsData from "../data/NewsData.jsx";
-import NewsCard from "../NewsCard.jsx";
+import NewsCard from "../components/NewsCard.jsx";
 
 export default function Page1() {
   const { category } = useParams();

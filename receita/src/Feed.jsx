@@ -1,4 +1,4 @@
-import NewsCard from "./NewsCard.jsx";
+import NewsCard from "./components/NewsCard.jsx";
 import newsData from "./data/NewsData.jsx";
 
 export default function Feed({ category }) {
