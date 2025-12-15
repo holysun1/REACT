@@ -1,35 +1,34 @@
-# Projeto React
+# Projetos em React
 
-Estes são projetos em React criado durante meus estudos de desenvolvimento frontend com React.
+Este repositório contém projetos desenvolvidos em React durante meus estudos.
 
-## 🚀 Tecnologias usadas
+## 📰 Projetos
+
+### 🔹 Portal de Notícias em React
+📁 Pasta: `receita`  
+🚀 Deploy: https://react-cyan-six-48.vercel.app/  
+📝 Projeto principal com foco em navegação, filtros e layout responsivo.
+
+---
+
+### 🔹 Curso React (Projeto de Estudos)
+📁 Pasta: `curso-react`  
+🚀 Deploy: https://react-hwv7.vercel.app/  
+📝 Projeto desenvolvido durante estudos de React, com páginas navegáveis e interface básica.
+
+
+## 📁 Estrutura do repositório
+
+- `receita/` → Projeto Portal de Notícias em React
+- `curso-react/` → Exercícios e estudos iniciais em React
+
+## 🚀 Tecnologias utilizadas nos projetos
+
 - React (Vite)
 - React Router DOM
 - TailwindCSS
 - JavaScript
 
-## 🧠 Sobre este projeto
-Este projeto contém funcionalidades de exemplo e demonstra o entendimento de rotas, componentes, estados e estrutura de um app React.
+## 🧠 Sobre este repositório
+Este repositório reúne projetos e exercícios desenvolvidos durante meus estudos em React, com foco em componentes, estados, rotas e organização de aplicações frontend.
 
-## 📦 Como rodar o projeto
-
-
-1. Clone este repositório:
-```bash
-git clone https://github.com/holysun1/REACT.git
-```
-
-2. Entre na pasta:
-```bash
-cd REACT 
-```
-
-3. Instale as dependências:
-```bash
-npm install
-```
-
-4. Inicie o servidor de desenvolvimento:
-```bash
-npm run dev
-``` 
