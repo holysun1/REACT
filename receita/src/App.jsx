@@ -1,17 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Page1 from "./pages/CategoryPage";
+import CategoryPage from "./pages/CategoryPage";
 import HomePage from "./pages/HomePage";
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/news/:category" element={<Page1 />} />
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/news/:category" element={<CategoryPage />} />
+      <Route path="/" element={<HomePage />} />
+    </Routes>
   );
 }
-
-export default App;

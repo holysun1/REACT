@@ -1,7 +1,6 @@
 import MenuItem from "./MenuItem";
 import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
-import HomePage from "../pages/HomePage";
 
 const menuData = [
   {
@@ -21,18 +20,26 @@ const menuData = [
     subItems: ["item 4.1", "item 4.2", "item 4.3", "item 4.4"],
   },
 ];
-export default function Menu({ onSelectCategory, activeCategory }) {
+export default function Menu({
+  onSelectCategory,
+  activeCategory,
+  onMenuClick,
+}) {
   const navigate = useNavigate();
-  onSelectCategory = () => {};
-  activeCategory = null;
   return (
     <div>
-      <button
-        onClick={() => navigate("/")}
-        className=" bg-white shadow-md rounded-md px-4 py-2  font-bold text-x1"
-      >
-        LOGO / NOME DO SITE
-      </button>
+      <div className="flex items-center justify-items-center-safe py-4">
+        <button onClick={onMenuClick} className="text-2xl ml-4">
+          ☰
+        </button>
+        <button
+          onClick={() => navigate("/")}
+          className=" bg-white shadow-md rounded-md px-4 py-2 font-bold text-x1"
+        >
+          LOGO / NOME DO SITE
+        </button>
+      </div>
+
       <header>
         {/* --------------- IMAGEM DE FUNDO --------------- */}
         <div
