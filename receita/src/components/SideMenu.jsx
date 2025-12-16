@@ -1,3 +1,5 @@
+import sideMenuData from "../data/SideMenuData.jsx";
+
 export default function SideMenu({ isOpen, setIsOpen }) {
   return (
     <>
@@ -12,7 +14,7 @@ export default function SideMenu({ isOpen, setIsOpen }) {
       {/*--------------- SIDE MENU CONTENT --------------- */}
       <aside
         className={`
-          fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50
+          absolute top-0 left-0 h-fit w-64 bg-white drop-shadow-lg z-50
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
@@ -25,11 +27,21 @@ export default function SideMenu({ isOpen, setIsOpen }) {
           </button>
         </div>
         <ul className="space-y-6 px-4 p-6">
-          <li className="cursor-pointer hover:text-blue-500">Tecnologia</li>
-          <li className="cursor-pointer hover:text-blue-500">Culinária</li>
-          <li className="cursor-pointer hover:text-blue-500">Moda</li>
-          <li className="cursor-pointer hover:text-blue-500">Saúde</li>
-          <li className="cursor-pointer hover:text-blue-500">Educação</li>
+          {sideMenuData.map((item) => (
+            <li key={item.label}>
+              <p className="font-semibold text-gray-800">{item.label}</p>
+              <ul className="mt-2 space-y-2 pl-4">
+                {item.subItems.map((sub) => (
+                  <li
+                    key={sub}
+                    className="text-gray-600 hover:text-blue-500 cursor-pointer"
+                  >
+                    {sub}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
         </ul>
       </aside>
     </>

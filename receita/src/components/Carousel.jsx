@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NewsCard from "./NewsCard";
 
-export default function Carousel({ title, itemsperPage = 4, data }) {
+export default function Carousel({ title, itemsperPage = 3, data }) {
   const [index, setIndex] = useState(0);
 
   const maxIndex = Math.max(data.length - itemsperPage, 0);
@@ -9,8 +9,10 @@ export default function Carousel({ title, itemsperPage = 4, data }) {
   const visibleItems = data.slice(index, index + itemsperPage);
 
   return (
-    <section className="bg-white p-4 mb-8">
-      <h2 className="text-2xl font-semibold">{title}</h2>
+    <section className="bg-white mb-8">
+      <h2 className="text-2xl font-semibold mb-6 border-b text-center">
+        {title}
+      </h2>
       <div className="relative">
         <button
           onClick={() => setIndex((i) => Math.max(i - itemsperPage, 0))}
