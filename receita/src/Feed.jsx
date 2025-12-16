@@ -10,16 +10,13 @@ export default function Feed({ category }) {
       : filteredNews.filter((news) => news.category === category);
 
   return (
-    <div className="space-y-8 ">
+    <div className="space-y-8">
       <section
         className="bg-white  
   shadow-sm 
   hover:shadow-md 
   transition p-4"
       >
-        <h1 className="text-2xl font-bold border-b mb-5 text-center">
-          FEED - 1
-        </h1>
         <div className=" mb-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {dataToRender.map((news) => (
@@ -29,7 +26,7 @@ export default function Feed({ category }) {
         </div>
         <h2 className="text-2xl font-semibold border-b mb-5 text-center">
           {" "}
-          FEED - 2{" "}
+          FEED{" "}
         </h2>
         <div className=" mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

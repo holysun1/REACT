@@ -46,6 +46,27 @@ const NewsData = [
     image: image4,
     featured: false, // ITEM SECUNDÁRIO - Ñ APARECE NA HOME PAGE
   },
+  {
+    id: 4,
+    title: "Notícia 1",
+    category: "ITEM 4",
+    image: image4,
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "Notícia 2 ",
+    category: "ITEM 1",
+    image: image4,
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "Notícia 3 ",
+    category: "ITEM 1",
+    image: image4,
+    featured: false,
+  },
 ];
 
 export default NewsData;

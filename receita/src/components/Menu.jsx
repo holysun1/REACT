@@ -20,15 +20,12 @@ const menuData = [
     subItems: ["item 4.1", "item 4.2", "item 4.3", "item 4.4"],
   },
 ];
-export default function Menu({
-  onSelectCategory,
-  activeCategory,
-  onMenuClick,
-}) {
+export default function Menu({ onMenuClick }) {
   const navigate = useNavigate();
+  const highlights = ["Últimas", "Em Alta", "Destaques", "Recomendadas"];
   return (
     <div>
-      <div className="flex items-center justify-items-center-safe py-4">
+      <div className="flex items-center justify-items-center-safe py-4 gap-x-10">
         <button onClick={onMenuClick} className="text-2xl ml-4">
           ☰
         </button>
@@ -43,40 +40,23 @@ export default function Menu({
       <header>
         {/* --------------- IMAGEM DE FUNDO --------------- */}
         <div
-          className="relative bg-cover bg-center h-[120px] shadow mb-4 w-screen "
+          className="bg-cover bg-center h-[100px]"
           style={{ backgroundImage: `url(${logo})` }}
-        >
+        />
+        <nav className="relative w-full mb-2 mt-4">
           {/* --------------- MENU SOBRE A IMAGEM  --------------- */}
-          <nav
-            className="
-        absolute
-        p-4
-        flex
-        inset-0
-        items-center 
-        justify-center
-      "
-          >
-            <div
-              className="flex 
-                flex-wrap 
-                justify-center 
-                gap-4 
-                md:flex-nowrap
-              "
-            >
-              {menuData.map((item, index) => (
-                <MenuItem
-                  key={index}
-                  label={item.label}
-                  subItems={item.subItems}
-                  onSelect={onSelectCategory}
-                  isActive={activeCategory === item.label}
-                />
-              ))}
-            </div>
-          </nav>
-        </div>
+          <div className="flex flex-wrap justify-center gap-4 bg-white p ">
+            {highlights.map((item) => (
+              <button
+                key={item}
+                className="px-4 py-4 rounded-full text-sm font-medium text-black hover:text-blue-600 cursor-pointer border-r-4 border-amber-200 pr-3 transition-colors"
+                onClick={() => console.log(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </nav>
       </header>
     </div>
   );
