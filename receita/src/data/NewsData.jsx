@@ -9,7 +9,11 @@ import olimpiadas from "../assets/olimpiadas.jpg";
 
 import { v4 as uuid } from "uuid";
 
+<<<<<<< HEAD
 const newsData = [
+=======
+const NewsData = [
+>>>>>>> 3d97896c1f3efb57f08a37350a6b04dc3f2de73a
   {
     id: uuid(),
     title: "Tecnologia Avançada",
@@ -75,4 +79,8 @@ const newsData = [
   },
 ];
 
+<<<<<<< HEAD
 export default newsData;
+=======
+export default NewsData;
+>>>>>>> 3d97896c1f3efb57f08a37350a6b04dc3f2de73a

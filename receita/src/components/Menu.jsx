@@ -1,6 +1,7 @@
 import MenuItem from "./MenuItem";
 import logo from "../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { useState } from "react";
 import App from "../App";
 
@@ -15,6 +16,12 @@ export default function Menu({ onMenuClick }) {
     }
   };
 
+=======
+
+export default function Menu({ onMenuClick }) {
+  const navigate = useNavigate();
+  const highlights = ["Últimas", "Em Alta", "Destaques", "Recomendadas"];
+>>>>>>> 3d97896c1f3efb57f08a37350a6b04dc3f2de73a
   return (
     <div>
       <div className="flex items-center py-4 gap-x-10">
@@ -31,9 +38,12 @@ export default function Menu({ onMenuClick }) {
           <input
             type="text"
             placeholder="Pesquisar..."
+<<<<<<< HEAD
             value={busca}
             onChange={(e) => setbusca(e.target.value)}
             onKeyDown={lidarComBusca}
+=======
+>>>>>>> 3d97896c1f3efb57f08a37350a6b04dc3f2de73a
             className="ml-4 px-4 py-2 rounded-full border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
