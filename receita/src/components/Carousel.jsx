@@ -1,11 +1,7 @@
 import { useState } from "react";
 import NewsCard from "./NewsCard";
 
-<<<<<<< HEAD
 export default function Carousel({ title, itemsperPage = 4, data }) {
-=======
-export default function Carousel({ title, itemsperPage = 3, data }) {
->>>>>>> 3d97896c1f3efb57f08a37350a6b04dc3f2de73a
   const [index, setIndex] = useState(0);
 
   const maxIndex = Math.max(data.length - itemsperPage, 0);
