@@ -10,6 +10,12 @@ Este repositório contém projetos desenvolvidos em React durante meus estudos.
 📝 Projeto principal com foco em navegação, filtros e layout responsivo.
 
 ---
+### 🔹 WEB - Catálogo E-Commerce Dinâmico
+📁 Pasta: `ecommerce`  
+🚀 Deploy: https://ecommerce-tan-beta-99.vercel.app/  
+📝 Plataforma responsiva com busca em tempo real, carrinho persistente (localStorage) e integração com Supabase (PostgreSQL). Fluxo focado em conversão com fechamento de pedido estruturado e direcionado para o WhatsApp.
+
+---
 
 ### 🔹 Curso React (Projeto de Estudos)
 📁 Pasta: `curso-react`  
