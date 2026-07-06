@@ -1,11 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="bg-zinc-900 text-zinc-400 py-12 border-t border-zinc-800 text-sm">
-      <section className="w-full py-8 bg-zinc-900 text-white">
+    <footer className="bg-zinc-900 text-zinc-400 py-10 border-t border-zinc-800 text-sm">
+      <section id="contato" className="w-full py-2 bg-zinc-900 scroll-mt-20 ">
+        <h2 className="text-3xl font-bold text-orange-600 mb-10 text-center">
+          Contato
+        </h2>
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-8 items-center">
           {/* Lado Esquerdo: Texto informativo */}
           <div className="md:w-1/2 space-y-4">
-            <h3 className="text-2xl font-bold text-orange-500">
+            <h3 className="text-2xl font-bold text-zinc-200">
               Venha nos visitar!
             </h3>
             <p className="text-zinc-300">

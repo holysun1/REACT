@@ -8,12 +8,12 @@ export default function Planos({ planos }) {
   };
 
   return (
-    <section className="py-16 bg-red-50" id="planos">
+    <section className="py-16 bg-zinc-600 scroll-mt-20" id="planos">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-zinc-800 mb-2">
+        <h2 className="text-3xl font-bold text-orange-600 mb-2">
           Planos Mensais de Marmita
         </h2>
-        <p className="text-zinc-600 mb-12">
+        <p className="text-zinc-100 mb-12 font-bold">
           Praticidade e sabor direto na sua rotina
         </p>
 
@@ -21,7 +21,7 @@ export default function Planos({ planos }) {
           {planos.map((plano) => (
             <div
               key={plano.id}
-              className="bg-white p-8 rounded-2xl shadow-md border border-red-100 flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
+              className="bg-white p-8 rounded-2xl shadow-md border border-orange-100 flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
             >
               <div>
                 <h3 className="text-xl font-bold text-zinc-800 mb-4">
@@ -32,7 +32,7 @@ export default function Planos({ planos }) {
                 </p>
               </div>
               <div>
-                <div className="text-2xl font-black text-red-600 mb-6">
+                <div className="text-2xl font-black text-orange-600 mb-6">
                   R$ {plano.preco.toFixed(2)}
                   <span className="text-xs text-zinc-500 font-normal">
                     /mês
@@ -40,7 +40,7 @@ export default function Planos({ planos }) {
                 </div>
                 <button
                   onClick={() => handleAssinatura(plano.nome)}
-                  className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-4 rounded-xl transition duration-200 shadow-md shadow-red-500/10"
+                  className="w-full bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-xl transition duration-200 shadow-md shadow-orange-500/10"
                 >
                   Assinar via WhatsApp
                 </button>

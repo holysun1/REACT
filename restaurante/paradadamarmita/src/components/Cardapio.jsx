@@ -23,13 +23,13 @@ export default function Cardapio() {
   };
 
   return (
-    <section className="py-16 bg-white" id="cardapio">
+    <section id="cardapio" className="py-16 bg-zinc-200 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-zinc-800 mb-2">
             Nosso Cardápio
           </h2>
-          <p className="text-zinc-500">
+          <p className="text-zinc-500 font-semibold">
             Escolha suas opções favoritas para o dia a dia
           </p>
         </div>
