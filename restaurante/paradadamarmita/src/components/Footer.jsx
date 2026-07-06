@@ -20,7 +20,7 @@ export default function Footer() {
                 📍 R. Cel. Afonso, 172 - B - Centro, Itapetininga - SP,
                 18200-175
               </p>
-              <p>📞 (15) 3273-3182</p>
+              <p>📞 (15) 99686-5032</p>
             </div>
           </div>
 
