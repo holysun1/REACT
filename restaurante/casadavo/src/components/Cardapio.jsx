@@ -17,10 +17,8 @@ export default function Cardapio() {
       : cardapioDiario.filter((item) => item.categoria === categoriaAtiva);
 
   const handlePedirPrato = (nomePrato) => {
-    const msg = encodeURIComponent(
-      `Olá! Gostaria de pedir a marmita/item: *${nomePrato}*.`,
-    );
-    window.open(`https://wa.me/5515999999999?text=${msg}`, "_blank");
+    const msg = encodeURIComponent(`Olá! Gostaria de pedir : *${nomePrato}*.`);
+    window.open(`https://wa.me/5515998483400?text=${msg}`, "_blank");
   };
 
   return (

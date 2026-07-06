@@ -11,12 +11,13 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="text-white font-semibold mb-4">Funcionamento</h4>
-          <p className="mb-2">Segunda a Sexta: 11h às 14h</p>
-          <p>Sábado: 11h às 15h</p>
+          <p>Segunda a Sexta: 11h às 14h e 19h ás 23:30h</p>
+          <p>Sábado: 11h às 14h</p>
+          <p>Domingo: 19h às 23:30h</p>
         </div>
         <div>
           <h4 className="text-white font-semibold mb-4">Contato</h4>
-          <p className="mb-2">WhatsApp: (15) 99999-9999</p>
+          <p className="mb-2">WhatsApp: (15) 99848-3400</p>
           <p>E-mail: contato@casadavó.com.br</p>
         </div>
       </div>
@@ -35,9 +36,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="md:text-right">
-          <p className="font-medium text-zinc-400">CNPJ: 00.000.000/0001-00</p>
+          <p className="font-medium text-zinc-400">CNPJ: 19.978.607/0001-79</p>
           <p className="mt-1">
-            Rua das Flores, 123 - Centro - Itapetininga/SP - CEP: 18200-000
+            R. Dr. Coutinho, 836 - Centro, Itapetininga - SP, 18200-358
           </p>
         </div>
       </div>
