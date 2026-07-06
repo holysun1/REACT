@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export default function Checkout() {
   const [customerPhone, setCustomerPhone] = useState("");
 
   // 📝 INSIRA O WHATSAPP COMERCIAL DO SEU CLIENTE AQUI (Apenas números, com DDD e código do país)
-  const WHATSAPP_NUMBER = "5511999999999";
+  const WHATSAPP_NUMBER = "+5515991940984";
 
   const handleSendBudget = (e) => {
     e.preventDefault();
@@ -29,16 +29,14 @@ export default function Checkout() {
 
     // 2. Varre o carrinho e monta a lista de produtos
     cart.forEach((item) => {
-      const itemTotal = item.price * item.quantity;
-      textMessage += `• ${item.name} (x${item.quantity}) - ${itemTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}\n`;
+      textMessage += `• ${item.name} (x${item.quantity})\n`;
     });
 
     textMessage += `\n──────────────────────\n`;
-    textMessage += `💰 *Valor Estimado:* ${cartTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}\n\n`;
     textMessage += `Aguardo o retorno com as condições de fornecimento e prazo!`;
 
     // 3. Codifica o texto para o formato aceito em URLs
-    const formattedUrl = `https://api.whatsapp.com/send?phone=${+5515991940984}&text=${encodeURIComponent(textMessage)}`;
+    const formattedUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(textMessage)}`;
 
     // 4. Abre o WhatsApp em uma nova aba
     window.open(formattedUrl, "_blank");
@@ -115,28 +113,19 @@ export default function Checkout() {
           <div className="divide-y divide-slate-700 overflow-y-auto max-h-60 mb-4 pr-1">
             {cart.map((item) => (
               <div key={item.id} className="flex justify-between py-3 text-sm">
-                <span className="text-slate-300 truncate max-w-[200px]">
-                  {item.name}{" "}
-                  <b className="text-emerald-400">x{item.quantity}</b>
+                <span className="text-slate-300 truncate max-w">
+                  {item.name}
                 </span>
                 <span className="font-medium text-slate-200">
-                  {(item.price * item.quantity).toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
+                  {item.quantity}
                 </span>
               </div>
             ))}
           </div>
 
           <div className="border-t border-slate-700 pt-4 flex justify-between font-bold text-base text-slate-100 mb-6">
-            <span>Total Estimado</span>
-            <span className="text-xl text-emerald-400">
-              {cartTotal.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </span>
+            <span>Quantidade Total</span>
+            <span className="text-xl text-emerald-400">{cartTotal}</span>
           </div>
 
           {/* Botão de Envio */}

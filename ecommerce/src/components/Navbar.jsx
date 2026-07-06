@@ -1,4 +1,3 @@
-import React from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
@@ -54,10 +53,6 @@ export default function Navbar({ onCartClick, searchQuery, setSearchQuery }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline-block text-sm font-medium text-slate-300 hover:text-emerald-400 cursor-pointer">
-              Minha Conta
-            </span>
-
             <button
               onClick={onCartClick}
               className="group relative flex items-center justify-center rounded-xl border border-slate-700 bg-slate-800 p-2.5 text-slate-300 hover:border-slate-600 hover:text-emerald-400 transition-all active:scale-95 cursor-pointer"

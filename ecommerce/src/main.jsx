@@ -8,7 +8,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CartProvider>
       {" "}
-      {/* Envolve a aplicação */}
       <App />
     </CartProvider>
   </React.StrictMode>,

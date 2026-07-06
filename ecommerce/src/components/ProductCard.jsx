@@ -1,14 +1,8 @@
-import React from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart(); // Puxa a função de adicionar
-
-  const formattedPrice = product.price.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl bg-slate-800 border border-slate-700 transition-all duration-300 hover:-translate-y-1 hover:border-slate-600 hover:shadow-xl hover:shadow-emerald-950/20">
@@ -33,11 +27,7 @@ export default function ProductCard({ product }) {
           {product.description}
         </p>
 
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-xl font-bold text-emerald-400">
-            {formattedPrice}
-          </span>
-
+        <div className="mt-4 items-center-safe">
           {/* Adicionado o onClick chamando a função do Contexto */}
           <button
             onClick={() => addToCart(product)}

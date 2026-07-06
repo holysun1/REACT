@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { useCart } from "../context/CartContext";
@@ -75,12 +75,6 @@ export default function ProductDetails() {
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-100 sm:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-6 text-xl font-black text-emerald-400">
-            {product.price.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </p>
 
           <div className="mt-6 border-t border-slate-800 pt-6">
             <h3 className="text-sm font-medium text-slate-200">

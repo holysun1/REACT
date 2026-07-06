@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient"; // 🔥 Importa a conexão
 import ProductCard from "../components/ProductCard";
 
@@ -42,7 +42,7 @@ export default function Home({ searchQuery, setSearchQuery }) {
   // Tela de carregamento opcional para dar um feedback visual
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center text-slate-400">
+      <div className="flex-1 flex items-center justify-center text-slate-900">
         <p className="animate-pulse">Carregando catálogo do Supabase...</p>
       </div>
     );
@@ -50,6 +50,45 @@ export default function Home({ searchQuery, setSearchQuery }) {
 
   return (
     <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* Seção Quem Somos / Sobre Nós */}
+      <section className="w-full max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Título e Destaque Visual */}
+          <div className="lg:col-span-4">
+            <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase">
+              Conheça nossa história
+            </span>
+            <h2 className="mt-2 text-3xl font-extrabold text-slate-100 sm:text-4xl">
+              Quem Somos
+            </h2>
+            <div className="mt-4 h-1 w-12 bg-emerald-500 rounded-full"></div>
+          </div>
+
+          {/* Texto Institucional Padrão */}
+          <div className="lg:col-span-8 space-y-4 text-slate-300 text-base leading-relaxed">
+            <p>
+              Somos uma empresa especializada no{" "}
+              <strong className="text-slate-100 font-semibold">
+                aluguel de equipamentos técnicos
+              </strong>{" "}
+              de alta performance, dedicada a fornecer soluções ágeis e
+              confiáveis para profissionais, empresas e projetos de diversos
+              segmentos.
+            </p>
+            <p>
+              Nosso compromisso é garantir que você tenha acesso às melhores
+              ferramentas do mercado sem a necessidade de grandes investimentos
+              em ativos fixos ou preocupações com manutenção. Contamos com um
+              catálogo rigorosamente revisado, suporte técnico ágil e logística
+              eficiente para garantir o fluxo contínuo do seu trabalho.
+            </p>
+            <p className="text-sm text-emerald-400 font-medium">
+              ⚙️ Tecnologia, economia e eficiência ao alcance do seu projeto.
+            </p>
+          </div>
+        </div>
+      </section>
+      <hr className="border-slate-200 my-8" />
       <div className="mb-8">
         <h2 className="text-3xl font-bold tracking-tight text-slate-100">
           {searchQuery

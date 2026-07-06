@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CartModal from "./components/CartModal";
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-slate-900 text-slate-100 antialiased">
+      <div className="flex flex-col min-h-screen bg-slate-800 text-slate-100 antialiased">
         <Navbar
           onCartClick={() => setIsCartOpen(true)}
           searchQuery={searchQuery}

@@ -6,7 +6,7 @@ export const products = [
     price: 349.9,
     category: "Calçados",
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_646295-CBT111322277477_052026-F.webp",
     description:
       "Ideal para corridas e treinos de alta intensidade. Conforto e amortecimento responsivo.",
   },

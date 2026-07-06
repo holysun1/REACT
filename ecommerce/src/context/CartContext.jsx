@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext();
 
@@ -40,12 +40,17 @@ export function CartProvider({ children }) {
     setCart([]);
   };
 
+  const decreaseQuantity = (productId) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item,
+      ),
+    );
+  };
+
   // Cálculos dinâmicos
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-  const cartTotal = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0,
-  );
+  const cartTotal = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <CartContext.Provider
@@ -56,6 +61,7 @@ export function CartProvider({ children }) {
         clearCart,
         totalItems,
         cartTotal,
+        decreaseQuantity,
       }}
     >
       {children}
