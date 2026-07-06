@@ -16,7 +16,7 @@ function App() {
               alt="Logo"
               className="h-12 w-12 object-cover rounded-full transition-transform group-hover:scale-105 contrast-125 brightness-105 mix-blend-multiply"
             />
-            <h1 className="text-2xl font-black text-red-600 tracking-tight">
+            <h1 className="text-xl font-black text-red-600 tracking-tight">
               Casa da Vó <span className="text-zinc-900">- Comida Caseira</span>
             </h1>
           </a>
