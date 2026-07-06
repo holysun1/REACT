@@ -42,11 +42,11 @@ function App() {
       <main>
         <section className="bg-linear-b from-orange-50 to-white py-10 text-center">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tight">
               Comida de verdade, <br />
               <span className="text-orange-500">prática e saborosa.</span>
             </h2>
-            <p className="text-zinc-600 text-base md:text-lg max-w-xl mx-auto mb-2">
+            <p className="text-zinc-100 text-base md:text-lg max-w-xl mx-auto  py-5">
               Escolha pratos avulsos para o seu dia ou assine nossos planos
               mensais de marmitas congeladas saudáveis.
             </p>
