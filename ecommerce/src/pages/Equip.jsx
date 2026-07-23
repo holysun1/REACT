@@ -1,16 +1,21 @@
 import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import ProductCard from "../components/ProductCard";
 import EquipImage from "../assets/EquipImage.png";
 
 export default function Equip({ searchQuery, setSearchQuery }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category") || "";
+
+  // ... resto dos estados (products, loading, selectedBrand, etc)
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Estados dos Filtros
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
+  const [selectedType, setSelectedType] = useState("");
   const [maxPrice, setMaxPrice] = useState(10000); // Valor padrão alto inicial
 
   // Busca os produtos no Supabase assim que a tela carrega
@@ -43,26 +48,10 @@ export default function Equip({ searchQuery, setSearchQuery }) {
     fetchProducts();
   }, []);
 
-  // Função para extrair o nome legível da marca a partir da URL da logo
-  const getBrandName = (brandUrl) => {
-    if (!brandUrl) return "";
-
-    // Se já for apenas texto puro (ex: "Fluke"), retorna ele mesmo
-    if (!brandUrl.startsWith("http")) return brandUrl;
-
-    try {
-      // Pega o nome do arquivo da URL (ex: 'logo-fluke.png' -> 'fluke')
-      const fileName = brandUrl.split("/").pop().split("?")[0];
-      const cleanName = fileName
-        .replace(/^logo-?/i, "") // Remove a palavra 'logo' se houver
-        .split(".")[0]; // Remove a extensão (.png, .jpg, etc)
-
-      // Capitaliza a primeira letra (ex: 'fluke' -> 'Fluke')
-      return cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
-    } catch {
-      return "Outra Marca";
-    }
-  };
+  const breadcrumbItems = [
+    { label: "Locação", path: "/equip" },
+    { label: "Instrumentos Elétricos", path: "/equip?category=Multímetro" },
+  ];
 
   // Extrai listas dinâmicas e sem duplicatas para os seletores da Sidebar
   const categories = useMemo(() => {
@@ -72,6 +61,10 @@ export default function Equip({ searchQuery, setSearchQuery }) {
 
   const brands = useMemo(() => {
     const list = products.map((p) => p.brand_name).filter(Boolean);
+    return [...new Set(list)];
+  }, [products]);
+  const types = useMemo(() => {
+    const list = products.map((p) => p.type).filter(Boolean);
     return [...new Set(list)];
   }, [products]);
 
@@ -102,7 +95,7 @@ export default function Equip({ searchQuery, setSearchQuery }) {
     const matchesCategoryQuery = String(product.category || "")
       .toLowerCase()
       .includes(query);
-    const matchesSearch = matchesName || matchesCategoryQuery;
+    const matchesSearch = matchesName || matchesCategoryQuery || matchesType;
 
     // Filtros da Sidebar
     const matchesCategory = selectedCategory
@@ -112,6 +105,7 @@ export default function Equip({ searchQuery, setSearchQuery }) {
     const productBrand = product.brand_name || product.brand;
     const matchesBrand = selectedBrand ? productBrand === selectedBrand : true;
     const matchesModel = selectedModel ? product.model === selectedModel : true;
+    const matchesType = selectedType ? product.type === selectedType : true;
 
     // Filtro por faixa de preço
     const productPrice = Number(product.price || 0);
@@ -122,9 +116,24 @@ export default function Equip({ searchQuery, setSearchQuery }) {
       matchesCategory &&
       matchesBrand &&
       matchesModel &&
+      matchesType &&
       matchesPrice
     );
   });
+
+  // Adicione esta função antes do seu return()
+  const handleCategoryChange = (e) => {
+    const newCategory = e.target.value;
+    setSelectedCategory(newCategory);
+
+    // Atualiza a URL para refletir a nova categoria
+    if (newCategory) {
+      searchParams.set("category", newCategory);
+    } else {
+      searchParams.delete("category"); // Limpa da URL se escolher "Todas"
+    }
+    setSearchParams(searchParams);
+  };
 
   // Função para limpar todos os filtros
   const handleClearAllFilters = () => {
@@ -180,6 +189,7 @@ export default function Equip({ searchQuery, setSearchQuery }) {
             </h3>
             {(selectedCategory ||
               selectedBrand ||
+              selectedType ||
               selectedModel ||
               searchQuery ||
               maxPrice < absoluteMaxPrice) && (
@@ -200,7 +210,7 @@ export default function Equip({ searchQuery, setSearchQuery }) {
               </label>
               <select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={handleCategoryChange}
                 className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 font-medium focus:ring-2 focus:ring-blue-500 focus:outline-hidden"
               >
                 <option value="">Todas as Categorias</option>
@@ -234,7 +244,28 @@ export default function Equip({ searchQuery, setSearchQuery }) {
               </select>
             </div>
 
-            {/* 3. FILTRO DE MODELO (Hierárquico após selecionar a marca) */}
+            {/* 3. FILTRO DE TIPO (Hierárquico após selecionar a marca) */}
+            <div>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                TIPO
+              </label>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                disabled={types.length === 0}
+                className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 font-medium focus:ring-2 focus:ring-blue-500 focus:outline-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <option value="">
+                  {selectedBrand ? "" : "Todos os Tipos"}
+                </option>
+                {types.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* 4. FILTRO DE MODELO (Hierárquico após selecionar a marca) */}
             <div>
               <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                 Modelo
@@ -246,7 +277,7 @@ export default function Equip({ searchQuery, setSearchQuery }) {
                 className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 font-medium focus:ring-2 focus:ring-blue-500 focus:outline-hidden disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <option value="">
-                  {selectedBrand ? "Todos os Modelos" : "Selecione uma Marca"}
+                  {selectedBrand ? "Todos os Modelos" : "Selecione um Modelo"}
                 </option>
                 {models.map((mod) => (
                   <option key={mod} value={mod}>

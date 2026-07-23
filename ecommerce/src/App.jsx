@@ -11,6 +11,7 @@ import Checkout from "./pages/Checkout";
 import About from "./pages/About";
 import Equip from "./pages/Equip";
 import TrustBadges from "./components/TrustBadges";
+import Locacao from "./pages/Locacao";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -44,11 +45,11 @@ function App() {
               />
             }
           />
+          <Route path="/locacao" element={<Locacao />} />
         </Routes>
+        <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         <TrustBadges />
         <Footer />
-
-        <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </div>
     </Router>
   );

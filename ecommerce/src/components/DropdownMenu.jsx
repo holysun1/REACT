@@ -49,7 +49,7 @@ export default function HeaderMenu() {
             <span>Inicio</span>
           </NavLink>
 
-          <NavLink to="/RentEq" className={navLinkStyle}>
+          <NavLink to="/Locacao" className={navLinkStyle}>
             <span>Locação</span>
           </NavLink>
 

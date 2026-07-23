@@ -23,11 +23,11 @@ export default function ProductCard({ product }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute top-3 left-3  bg-amber-500/80 px-3 py-1 text-xs rounded-lg border border-slate-800/80 shadow-md text-slate-900 font-bold backdrop-blur-xs">
-          {product.category}
+          {product.type}
         </span>
         <span className="absolute bottom-3 left-3 flex items-center justify-center w-12 h-8 p-0.5 bg-white/90 rounded-lg border border-slate-200/80 shadow-md backdrop-blur-xs">
           <img
-            src={product.brand}
+            src={product.logo_image}
             alt="Marca do Produto"
             className="max-h-full max-w-full object-cotain"
           />
