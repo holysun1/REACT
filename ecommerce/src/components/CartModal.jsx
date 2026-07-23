@@ -56,7 +56,7 @@ export default function CartModal({ isOpen, onClose }) {
                 <p>Seu carrinho está vazio.</p>
                 <button
                   onClick={onClose}
-                  className="text-sm text-emerald-400 hover:underline"
+                  className="text-sm text-blue-800 hover:underline"
                 >
                   Continuar comprando
                 </button>
@@ -81,7 +81,7 @@ export default function CartModal({ isOpen, onClose }) {
                     </p>
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-xs text-slate-300">
-                        Qtd: <b className="text-emerald-400">{item.quantity}</b>
+                        Qtd: <b className="text-amber-100">{item.quantity}</b>
                       </span>
                       <div className="flex items-center bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
                         <button
@@ -127,7 +127,7 @@ export default function CartModal({ isOpen, onClose }) {
             <div className="border-t border-slate-700 pt-4 bg-slate-800">
               <div className="flex justify-between text-base font-medium text-slate-100 mb-4">
                 <span>Total de itens</span>
-                <span className="text-xl font-black text-emerald-400">
+                <span className="text-xl font-black text-amber-100">
                   {totalItems}
                   {totalItems === 1 ? " item" : " itens"}
                 </span>
@@ -138,7 +138,7 @@ export default function CartModal({ isOpen, onClose }) {
               <Link
                 to="/checkout"
                 onClick={onClose} // Fecha o modal ao navegar
-                className="w-full block rounded-xl bg-emerald-500 py-3 text-center text-sm font-bold text-slate-950 shadow-xs hover:bg-emerald-400 active:scale-98 transition-all cursor-pointer"
+                className="w-full block rounded-xl bg-blue-700 py-3 text-center text-sm font-bold text-amber-100 shadow-xs hover:bg-blue-800 active:scale-98 transition-all cursor-pointer"
               >
                 Avançar
               </Link>

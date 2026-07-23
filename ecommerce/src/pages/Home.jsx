@@ -1,126 +1,17 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../supabaseClient"; // 🔥 Importa a conexão
-import ProductCard from "../components/ProductCard";
+import HomeImage from "../assets/HomeImage.png";
+import CategoryGrid from "../components/CategoryGrid";
 
-export default function Home({ searchQuery, setSearchQuery }) {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Busca os produtos no Supabase assim que a tela carrega
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        setLoading(true);
-
-        // Faz o "SELECT * FROM products" na nuvem
-        const { data, error } = await supabase.from("products").select("*");
-
-        if (error) throw error;
-
-        setProducts(data || []);
-      } catch (error) {
-        console.error("Erro ao buscar produtos:", error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchProducts();
-  }, []);
-
-  // Filtro de busca (continua funcionando perfeitamente em cima do estado)
-  const filteredProducts = products.filter((product) => {
-    const matchesName = product.name
-      ?.toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    const matchesCategory = product.category
-      ?.toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    return matchesName || matchesCategory;
-  });
-
-  // Tela de carregamento opcional para dar um feedback visual
-  if (loading) {
-    return (
-      <div className="flex-1 flex items-center justify-center text-slate-900">
-        <p className="animate-pulse">Carregando catálogo do Supabase...</p>
-      </div>
-    );
-  }
-
+export default function Home() {
   return (
-    <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Seção Quem Somos / Sobre Nós */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 border-b border-slate-800">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Título e Destaque Visual */}
-          <div className="lg:col-span-4">
-            <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase">
-              Conheça nossa história
-            </span>
-            <h2 className="mt-2 text-3xl font-extrabold text-slate-100 sm:text-4xl">
-              Quem Somos
-            </h2>
-            <div className="mt-4 h-1 w-12 bg-emerald-500 rounded-full"></div>
-          </div>
-
-          {/* Texto Institucional Padrão */}
-          <div className="lg:col-span-8 space-y-4 text-slate-300 text-base leading-relaxed">
-            <p>
-              Somos uma empresa especializada no{" "}
-              <strong className="text-slate-100 font-semibold">
-                aluguel de equipamentos técnicos
-              </strong>{" "}
-              de alta performance, dedicada a fornecer soluções ágeis e
-              confiáveis para profissionais, empresas e projetos de diversos
-              segmentos.
-            </p>
-            <p>
-              Nosso compromisso é garantir que você tenha acesso às melhores
-              ferramentas do mercado sem a necessidade de grandes investimentos
-              em ativos fixos ou preocupações com manutenção. Contamos com um
-              catálogo rigorosamente revisado, suporte técnico ágil e logística
-              eficiente para garantir o fluxo contínuo do seu trabalho.
-            </p>
-            <p className="text-sm text-emerald-400 font-medium">
-              ⚙️ Tecnologia, economia e eficiência ao alcance do seu projeto.
-            </p>
-          </div>
-        </div>
+    <main className="flex-1 w-full  py-12 ">
+      <section className=" left-0 right-0 overflow-hidden">
+        <img
+          src={HomeImage}
+          alt="Banner Principal"
+          className="w-full h-auto max-h-100 object-cover block"
+        />
       </section>
-      <hr className="border-slate-200 my-8" />
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-100">
-          {searchQuery
-            ? `Resultados para: "${searchQuery}"`
-            : "Nossos Produtos"}
-        </h2>
-        <p className="mt-2 text-sm text-slate-400">
-          {searchQuery
-            ? `Encontramos ${filteredProducts.length} produto(s)`
-            : "Confira as melhores ofertas selecionadas para você."}
-        </p>
-      </div>
-
-      {filteredProducts.length === 0 ? (
-        <div className="text-center py-12 bg-slate-800/30 rounded-2xl border border-slate-800 border-dashed">
-          <p className="text-slate-400 text-lg">
-            Nenhum produto encontrado com esse termo. 😕
-          </p>
-          <button
-            onClick={() => setSearchQuery("")}
-            className="mt-3 text-sm text-emerald-400 hover:underline cursor-pointer"
-          >
-            Limpar busca
-          </button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+      <CategoryGrid />
     </main>
   );
 }

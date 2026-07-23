@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import CartModal from "./components/CartModal";
 import Footer from "./components/Footer";
 
@@ -8,6 +8,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Checkout from "./pages/Checkout";
+import About from "./pages/About";
+import Equip from "./pages/Equip";
+import TrustBadges from "./components/TrustBadges";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -15,13 +18,12 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-slate-800 text-slate-100 antialiased">
-        <Navbar
+      <div className="flex flex-col min-h-screen bg-white text-slate-800 antialiased">
+        <NavBar
           onCartClick={() => setIsCartOpen(true)}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
-
         {/* Gerenciador de Rotas Dinâmicas */}
         <Routes>
           <Route
@@ -32,8 +34,18 @@ function App() {
           />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/equip"
+            element={
+              <Equip
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
+            }
+          />
         </Routes>
-
+        <TrustBadges />
         <Footer />
 
         <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />

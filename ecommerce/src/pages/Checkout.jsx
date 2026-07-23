@@ -57,8 +57,8 @@ export default function Checkout() {
   }
 
   return (
-    <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-extrabold tracking-tight text-slate-100 mb-8">
+    <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-8">
         Solicitar Orçamento
       </h1>
 
@@ -66,14 +66,14 @@ export default function Checkout() {
         {/* Formulário de Identificação do Usuário */}
         <form
           onSubmit={handleSendBudget}
-          className="lg:col-span-7 bg-slate-800/40 p-6 rounded-2xl border border-slate-800 space-y-6"
+          className="lg:col-span-7 bg-slate-100 p-6 rounded-2xl border border-slate-800 space-y-6"
         >
-          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+          <h2 className="text-lg font-semibold text-slate-900 border-b border-slate-700 pb-2">
             📋 Seus Dados
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
-              <label className="block text-xs font-medium text-slate-400 mb-1">
+              <label className="block text-xs font-bold text-slate-900 mb-1">
                 Nome Completo *
               </label>
               <input
@@ -82,11 +82,11 @@ export default function Checkout() {
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="Ex: João Silva"
-                className="w-full rounded-xl bg-slate-800 border border-slate-700 p-3 text-sm text-slate-100 focus:border-emerald-500 focus:outline-hidden transition-colors"
+                className="w-full rounded-xl bg-slate-800 border border-slate-700 p-3 text-sm text-slate-100 focus:border-amber-400 focus:outline-hidden transition-colors"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs font-medium text-slate-400 mb-1">
+              <label className="block text-xs font-medium text-slate-800 mb-1">
                 Telefone / WhatsApp (Opcional)
               </label>
               <input
@@ -94,11 +94,11 @@ export default function Checkout() {
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}
                 placeholder="Ex: (11) 99999-9999"
-                className="w-full rounded-xl bg-slate-800 border border-slate-700 p-3 text-sm text-slate-100 focus:border-emerald-500 focus:outline-hidden transition-colors"
+                className="w-full rounded-xl bg-slate-800 border border-slate-700 p-3 text-sm text-slate-100 focus:border-amber-400 focus:outline-hidden transition-colors"
               />
             </div>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-900 font-bold">
             * Seus dados serão enviados junto com a lista de itens para que a
             empresa possa entrar em contato com você.
           </p>
@@ -125,13 +125,13 @@ export default function Checkout() {
 
           <div className="border-t border-slate-700 pt-4 flex justify-between font-bold text-base text-slate-100 mb-6">
             <span>Quantidade Total</span>
-            <span className="text-xl text-emerald-400">{cartTotal}</span>
+            <span className="text-xl text-slate-100">{cartTotal}</span>
           </div>
 
           {/* Botão de Envio */}
           <button
             onClick={handleSendBudget}
-            className="w-full rounded-xl bg-emerald-500 py-3.5 text-center font-bold text-slate-950 hover:bg-emerald-400 active:scale-98 transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full rounded-xl bg-amber-400 py-3.5 text-center font-bold text-black hover:bg-blue-800 active:scale-98 transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <span>💬</span> Enviar via WhatsApp
           </button>
